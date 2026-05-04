@@ -1,0 +1,31 @@
+# Data (fetched at runtime, not committed)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# Secrets
+*.key
+api_key.txt
+
+# OS
+.DS_Store
+Thumbs.db
