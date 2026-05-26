@@ -1,6 +1,6 @@
 # Zero-Day Weaponization Timeline
 
-**Research question:** Given a CVE's publicly available characteristics at the time of disclosure, how long until it is actively exploited in the wild — and what factors drive that window?
+**Research question:** Given a CVE's publicly available characteristics at the time of disclosure, how long until it is actively exploited, and what factors drive that window?
 
 ## Results
 
@@ -12,9 +12,11 @@
 | R² (test set) | 0.083 |
 | MAE | 854 days |
 
-The low R² is itself a finding. CVE metadata available at disclosure time — CVSS scores, attack vector, complexity, scope — explains only ~8% of the variance in how quickly a vulnerability gets exploited. The remaining variance is driven by factors outside the data: threat actor priorities, exploit kit development timelines, target sector exposure, and geopolitical context. This has a direct implication for defenders: metadata-based scoring systems like CVSS are necessary but not sufficient for prioritizing patch urgency.
+**Summary:** Used CVE metadata available at disclosure time, with features like CVSS scores, attack vector, complexity, and scope. The resulting R² on the test set is low, and reflects that CVE metadata explained only ~8% of the variance in how quickly a vulnerability is exploited. EPSS (Exploitation probability score from FIRST.org) is the most predictive feature, which is consistent with its design as a purpose-built exploit forecasting system. The remaining variance is driven by outside factors: threat actor priorities, exploit kit development timelines, target sector exposure, and geopolitical context, to name some of the many issues driving vulnerability exploitation. 
 
-EPSS (the machine-learned exploitation probability score from FIRST.org) contributes the most predictive signal of any single feature, which is consistent with its design as a purpose-built exploit forecasting system.
+**Real-world implication:** Metadata-based scoring systems like CVSS are necessary but not sufficient for prioritizing patch urgency.
+
+
 
 ## Data Sources
 
@@ -76,7 +78,7 @@ conda activate zerodaytl
 pip install -r requirements.txt
 ```
 
-No API keys required — all three data sources are publicly accessible without authentication. Adding a free [NVD API key](https://nvd.nist.gov/developers/request-an-api-key) reduces the full data collection run from ~2 hours to ~12 minutes.
+All data sources are publicly accessible.
 
 ## Methodology Notes
 
